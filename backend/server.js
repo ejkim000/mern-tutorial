@@ -5,6 +5,10 @@ const app = express();
 const goalRoutes = require('./routes/goalRoutes');
 
 
+app.use(express.json()); // For req.body
+app.use(express.urlencoded({extended: false})); // For req.params
+
+
 app.use('/api/goals', goalRoutes);
 
 app.listen(PORT, ()=> {

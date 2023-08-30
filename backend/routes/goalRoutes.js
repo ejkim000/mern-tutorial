@@ -2,23 +2,23 @@ const express = require("express");
 const router = express.Router();
 const {
   getGoals,
-  setGoals,
-  updateGoals,
-  deleteGoals,
+  setGoal,
+  updateGoal,
+  deleteGoal,
 } = require("../constrollers/goalControllers");
 
 router.route('/')
 .get(getGoals)
-.post(setGoals);
+.post(setGoal);
 
 router.route('/:id')
-.put(updateGoals)
-.delete(deleteGoals);
+.put(updateGoal)
+.delete(deleteGoal);
 
 // router.route('/')
 //   .get("/", getGoals)
-//   .post("/", setGoals)
-//   .put("/:id", updateGoals)
-//   .delete("/:id", deleteGoals);
+//   .post("/", setGoal)
+//   .put("/:id", updateGoal)
+//   .delete("/:id", deleteGoal);
 
 module.exports = router;
