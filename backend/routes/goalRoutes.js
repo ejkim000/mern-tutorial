@@ -6,14 +6,12 @@ const {
   updateGoal,
   deleteGoal,
 } = require("../controllers/goalControllers");
+const { protect } = require('../middleware/authMiddleware');
 
-router.route('/')
-.get(getGoals)
-.post(setGoal);
-
-router.route('/:id')
-.put(updateGoal)
-.delete(deleteGoal);
+// make routes private by adding "protect" middleware
+// Before: router.route('/').get(getGoals) .post(setGoal);
+router.route('/').get(protect, getGoals) .post(protect, setGoal);
+router.route('/:id').put(protect, updateGoal).delete(protect, deleteGoal);
 
 // router.route('/')
 //   .get("/", getGoals)
