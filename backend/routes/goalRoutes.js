@@ -7,8 +7,6 @@ const {
   deleteGoal,
 } = require("../controllers/goalControllers");
 
-// default route: '/api/goals'
-
 router.route('/')
 .get(getGoals)
 .post(setGoal);
@@ -17,8 +15,7 @@ router.route('/:id')
 .put(updateGoal)
 .delete(deleteGoal);
 
-// SAME AS BELOW
-// router
+// router.route('/')
 //   .get("/", getGoals)
 //   .post("/", setGoal)
 //   .put("/:id", updateGoal)

@@ -39,11 +39,11 @@ const updateGoal = asyncHandler(async (req, res) => {
     throw new Error('Goal not found')
   }
   
-  const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
-    new: true, // if doesn't exist, then create one
+  const updateGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
+    new: true, // if son't exist, then create one
   })
 
-  res.status(200).json(updatedGoal);
+  res.status(200).json(updateGoal);
 });
 
 // @desc Delete goals
