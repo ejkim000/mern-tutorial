@@ -17,6 +17,7 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // use useSlector hook to get stored reducer in store.js
   const { user, isLoading, isError, isSuccess, message } = useSelector
   ((state)=> state.auth);
 
@@ -42,7 +43,7 @@ function Login() {
         [e.target.name]: e.target.value,
     }));
   };
-  
+
   const onSubmit = (e) => {
     e.preventDefault();
 

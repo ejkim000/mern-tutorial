@@ -19,6 +19,7 @@ function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // use useSlector hook to get stored reducer in store.js
   const { user, isLoading, isError, isSuccess, message } = useSelector
   ((state)=> state.auth);
 
@@ -33,7 +34,7 @@ function Register() {
       navigate('/');
     }
 
-    // reset after above actions
+    // dispatch can call actions from reducer 
     dispatch(reset());
 
   }, [user, isError, isSuccess, message, navigate, dispatch]);
