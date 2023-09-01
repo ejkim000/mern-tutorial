@@ -46,7 +46,8 @@ const updateGoal = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 
-  // make sure the logged in user matches the goal user
+  // make sure the logged in user id matches the goal user id
+  // goal.user.toString() : goal.user is an object, s have to make as string
   if (goal.user.toString() !== user.id) {
     res.status(401);
     throw new Error("User not authorized");
@@ -92,5 +93,5 @@ module.exports = {
   getGoals,
   setGoal,
   updateGoal,
-  deleteGoal,
+  deleteGoal
 };
