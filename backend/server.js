@@ -1,26 +1,42 @@
-const express = require('express');
+const path = require("path");
+const express = require("express");
 const app = express();
-const color = require('colors');
-const dotenv = require('dotenv').config();
+const color = require("colors");
+const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 3020;
-const { errorHandler } = require('./middleware/errorMiddleware');
-const goalRoutes = require('./routes/goalRoutes');
-const userRoutes = require('./routes/userRoutes');
+const { errorHandler } = require("./middleware/errorMiddleware");
+const goalRoutes = require("./routes/goalRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 // DB CONNECTION
-const connectDB = require('./config/db');
+const connectDB = require("./config/db");
 connectDB();
 
 // MIDDLE WARE
 app.use(express.json()); // For req.body
-app.use(express.urlencoded({extended: false})); // For req.params
+app.use(express.urlencoded({ extended: false })); // For req.params
 app.use(errorHandler); //to make override default errorhandler
 
 // ROUTES
-app.use('/api/goals', goalRoutes);
-app.use('/api/users', userRoutes);
+app.use("/api/goals", goalRoutes);
+app.use("/api/users", userRoutes);
+
+// Serve frontend
+if (process.env.NODE_ENV === "production") {
+  // Set react frontend static folder
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  // Send all route to index.hrml file except above API routes
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    );
+  });
+} else {
+    app.get('/', (req, res) => res.send("Please set yo production"));
+}
 
 // LISTEN SERVER
-app.listen(PORT, ()=> {
-    console.log(`Server startd on port ${PORT}`);
-})
+app.listen(PORT, () => {
+  console.log(`Server startd on port ${PORT}`);
+});
