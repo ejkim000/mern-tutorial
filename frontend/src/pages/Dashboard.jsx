@@ -16,12 +16,12 @@ function Dashboard() {
   );
 
   useEffect(() => {
-    if (isError) {
-      console.log(message);
-    }
-
     if (!user) {
       navigate("/login");
+    }
+
+    if (isError) {
+      console.log(message);
     }
 
     dispatch(getGoals());
@@ -29,6 +29,7 @@ function Dashboard() {
     return () => {
       dispatch(reset());
     }
+    
   }, [user, navigate, isError, message, dispatch]);
 
   if (isLoading) {
@@ -53,7 +54,7 @@ function Dashboard() {
               ))
             }
           </div>
-        ) : (<h3>You hsvr not set any goals</h3>)
+        ) : (<h3>You have not set any goals</h3>)
         }
       </section>
     </>
