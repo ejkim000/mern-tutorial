@@ -1,6 +1,21 @@
 # code along - Goal Setter MERN tutorial
 * https://www.youtube.com/playlist?list=PLTMNWTDdd5z_CtvbzG6r1f4hjnCaphPTV
 
+
+## MERN stack
+* React 
+* Express
+* MongoDB (Mongoose)
+
+## Plus
+* RESTful API
+* JWT authentication
+* Express Async Handler
+* React Dom
+* React Redux
+* React Icons
+* React Toastify
+
 ## Installation
 ```
 npm init -y
