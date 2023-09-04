@@ -19,6 +19,8 @@
 
 ## Installation
 ```
+*** Back-end ***
+
 npm init -y
 
 npm i express
@@ -39,7 +41,12 @@ npm i express-async-handler
 
 npm i bcryptjs jsonwebtoken
 
+
+*** Front-end ***
+
 npx create-react-app@latest frontend --template redux
+
+cd frontend
 
 npm i react-router-dom
 
@@ -53,5 +60,7 @@ npm i axios react-toastify
 * After finish all coding
 
 ```
+cd frontend
+
 npm run build
 ```
