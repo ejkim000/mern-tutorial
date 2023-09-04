@@ -1,4 +1,4 @@
-# code along - Goal Setter MERN tutorial
+# Goal Setter with Authentication - MERN Stack Code Along
 * https://www.youtube.com/playlist?list=PLTMNWTDdd5z_CtvbzG6r1f4hjnCaphPTV
 
 
@@ -10,11 +10,12 @@
 ## Plus
 * RESTful API
 * JWT authentication
-* Express Async Handler
-* React Dom
 * React Redux
+* React Dom
+* React Router Dom
 * React Icons
 * React Toastify
+* Express Async Handler
 
 ## Installation
 ```
@@ -53,5 +54,4 @@ npm i axios react-toastify
 
 ```
 npm run build
-
 ```
