@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install": "npm install --prefix frontend",
     "build": "npm run build --prefix frontend"
-    },
+  },
   "author": "EJ",
   "license": "MIT",
   "dependencies": {
