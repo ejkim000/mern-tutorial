@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const color = require('colors');
 const dotenv = require('dotenv').config();
@@ -13,6 +14,7 @@ const connectDB = require('./config/db');
 connectDB();
 
 // MIDDLE WARE
+app.use(cors());
 app.use(express.json()); // For req.body
 app.use(express.urlencoded({ extended: false })); // For req.params
 app.use(errorHandler); //to make override default errorhandler
