@@ -21,8 +21,27 @@ app.use(errorHandler); //to make override default errorhandler
 app.use('/api/goals', goalRoutes);
 app.use('/api/users', userRoutes);
 
+// Serve frontend Start *****
+// After finish all coding , go to frontend folder & > npm run build
+// Then, you can run front-end in the server url
+if (process.env.NODE_ENV === 'production') {
+  // Set react frontend static folder
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  // Send all route to front-end index.html file except above API routes
+  app.get('*', (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+    );
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.send('Please set to production');
+  });
+}
+// Serve frontend End *****
 
 // LISTEN SERVER
-app.listen(() => {
-  console.log(`Server startd`);
+app.listen(PORT, () => {
+  console.log(`Server startd on port ${PORT}`);
 });
