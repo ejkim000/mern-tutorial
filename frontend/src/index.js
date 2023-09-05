@@ -8,7 +8,7 @@ import './index.css';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-
+// Use Redux Provider to set "store" for all children
 root.render(
   <React.StrictMode>
     <Provider store={store}>

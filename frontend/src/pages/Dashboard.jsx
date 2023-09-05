@@ -16,6 +16,7 @@ function Dashboard() {
   );
 
   useEffect(() => {
+    // There were infinit calling since this if sentance was below error part
     if (!user) {
       navigate("/login");
     }

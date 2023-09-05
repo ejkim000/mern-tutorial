@@ -8,6 +8,8 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 
 function App() {
+  // Add Home
+  // Change Dashboard path
   return (
     <>
       <Router>

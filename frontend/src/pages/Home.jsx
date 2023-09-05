@@ -1,3 +1,4 @@
+// Created Home for root route
 function Home() {
   return (
     <>

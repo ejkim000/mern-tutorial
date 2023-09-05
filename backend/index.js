@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); 
 const app = express();
 const color = require('colors');
 const dotenv = require('dotenv').config();
@@ -13,7 +13,7 @@ const userRoutes = require('./routes/userRoutes');
 const connectDB = require('./config/db');
 connectDB();
 
-// MIDDLE WARE
+// MIDDLE WARE : added to prevent 'Access-Control-Allow-Origin' header issue
 app.use(cors());
 app.use(express.json()); // For req.body
 app.use(express.urlencoded({ extended: false })); // For req.params
@@ -22,6 +22,9 @@ app.use(errorHandler); //to make override default errorhandler
 // ROUTES
 app.use('/api/goals', goalRoutes);
 app.use('/api/users', userRoutes);
+
+
+/* I commented out this part, because front-end has separated deployment */
 
 // // Serve frontend Start *****
 // // After finish all coding , go to frontend folder & > npm run build

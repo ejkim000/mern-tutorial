@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// For now set PI_URL manually, later have to check proxy & env
 const API_URL = 'https://goal-setter-app-zo5r.onrender.com/api/users/';
 
 // Register user
